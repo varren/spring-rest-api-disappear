@@ -1,0 +1,38 @@
+<configuration>
+
+    <!--<conversionRule conversionWord="stack" converterClass="net.logstash.logback.stacktrace.ShortenedThrowableConverter" />-->
+    
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			 <pattern>
+				 <!--%d{yyyy-MMM-dd HH:mm:ss.SSS} [%thread] %highlight(%-5level) %cyan(%logger{15}) - %msg %n-->
+                 %d{HH:mm:ss.SSS} [%.-7thread] %highlight(%-5level) %cyan(%-40.40logger{15}) - %green(%msg) %n %ex{5}
+			     <!--web - %date [%thread] %-5level %logger{5} - %message%n%ex{5,1}-->
+			</pattern>
+		</encoder>
+
+	</appender>
+
+	<logger name="ru.varren" level="DEBUG" />
+    <logger name="org.springframework.web.filter.AbstractRequestLoggingFilter" level="DEBUG"/>
+
+	<!-- to view SQL statements, change to DEBUG -->
+	<logger name="org.hibernate.SQL" level="ERROR" />
+	<logger name="org.hibernate" level="ERROR" />
+
+	<logger name="org.springframework" level="INFO" />
+	<logger name="org.springframework.transaction" level="WARN" />
+
+	<logger name="org.springframework.security" level="INFO" />
+	<!-- to debug security related issues (DEBUG)
+some serialization issues are at trace level here: org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod-->
+	<logger name="org.springframework.web" level="DEBUG" />
+	<logger name="org.springframework.web.servlet.mvc" level="DEBUG" />
+	<!-- in order to debug some marshalling issues, this needs to be TRACE -->
+	<!--<logger name="org.springframework.web.servlet.mvc" level="WARN" />-->
+
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+	</root>
+
+</configuration>
