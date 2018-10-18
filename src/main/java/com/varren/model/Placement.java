@@ -17,7 +17,7 @@ public class Placement {
     private PlacementType type;
 
     @ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.REMOVE)
-    private PlacementType theme;
+    private PlacementTheme theme;
 
     public Long getId() {
         return id;
@@ -43,11 +43,11 @@ public class Placement {
         this.type = type;
     }
 
-    public PlacementType getTheme() {
+    public PlacementTheme getTheme() {
         return theme;
     }
 
-    public void setTheme(PlacementType theme) {
+    public void setTheme(PlacementTheme theme) {
         this.theme = theme;
     }
 }
