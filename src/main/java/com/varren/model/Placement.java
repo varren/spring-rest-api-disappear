@@ -42,4 +42,12 @@ public class Placement {
     public void setType(PlacementType type) {
         this.type = type;
     }
+
+    public PlacementType getTheme() {
+        return theme;
+    }
+
+    public void setTheme(PlacementType theme) {
+        this.theme = theme;
+    }
 }
