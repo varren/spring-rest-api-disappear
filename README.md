@@ -9,8 +9,10 @@ But after i visit PlacementType from Placement (`@ManyToOne`)  i can't access Pl
 http://localhost:8090/api/placement/1/type => 200 works fine
 
 http://localhost:8090/api/placementType => 404
+
+___
+* GET  http://localhost:8090/api/placementType 200
 ```
- GET  http://localhost:8090/api/placementType 200
  02:44:56.197 [http-ni] TRACE o.s.w.s.DispatcherServlet                - Bound request context to thread: org.apache.catalina.connector.RequestFacade@5d505375
  02:44:56.197 [http-ni] DEBUG o.s.w.s.DispatcherServlet                - DispatcherServlet with name 'dispatcherServlet' processing GET request for [/api/placementType]
  02:44:56.197 [http-ni] TRACE o.s.w.s.DispatcherServlet                - Testing handler map [org.springframework.web.servlet.handler.SimpleUrlHandlerMapping@729cd862] in DispatcherServlet with name 'dispatcherServlet'
@@ -22,13 +24,13 @@ http://localhost:8090/api/placementType => 404
  02:44:56.211 [http-ni] TRACE o.s.w.s.DispatcherServlet                - Testing handler adapter [org.springframework.data.rest.webmvc.RepositoryRestHandlerAdapter@42cc5460]
  02:44:56.211 [http-ni] DEBUG o.s.w.s.DispatcherServlet                - Last-Modified value for [/api/placementType] is: -1
  Hibernate: select placementt0_.id as id1_2_, placementt0_.name as name2_2_ from placement_type placementt0_ limit ?
-02:44:56.223 [http-ni] DEBUG m.m.a.RequestResponseBodyMethodProcessor - Written [PagedResource { content: [Resource { content: com.varren.model.PlacementType@9bcf44c, links: [<http://localhost:8090/api/placementType/1>;rel="self", <http://localhost:8090/api/placementType/1>;rel="placementType"] }], metadata: Metadata { number: 0, total pages: 1, total elements: 1, size: 20 }, links: [<http://localhost:8090/api/placementType{?page,size,sort}>;rel="self", <http://localhost:8090/api/profile/placementType>;rel="profile"] }] as "application/hal+json" using [org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguration$ResourceSupportHttpMessageConverter@559d19c]
+ 02:44:56.223 [http-ni] DEBUG m.m.a.RequestResponseBodyMethodProcessor - Written [PagedResource { content: [Resource { content: com.varren.model.PlacementType@9bcf44c, links: [<http://localhost:8090/api/placementType/1>;rel="self", <http://localhost:8090/api/placementType/1>;rel="placementType"] }], metadata: Metadata { number: 0, total pages: 1, total elements: 1, size: 20 }, links: [<http://localhost:8090/api/placementType{?page,size,sort}>;rel="self", <http://localhost:8090/api/profile/placementType>;rel="profile"] }] as "application/hal+json" using [org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguration$ResourceSupportHttpMessageConverter@559d19c]
  02:44:56.223 [http-ni] DEBUG o.s.w.s.DispatcherServlet                - Null ModelAndView returned to DispatcherServlet with name 'dispatcherServlet': assuming HandlerAdapter completed request handling
  02:44:56.224 [http-ni] TRACE o.s.w.s.DispatcherServlet                - Cleared thread-bound request context: org.apache.catalina.connector.RequestFacade@5d505375
  02:44:56.224 [http-ni] DEBUG o.s.w.s.DispatcherServlet                - Successfully completed request
-
- GET http://localhost:8090/api/placement/1/type 200
- 02:47:03.833 [http-ni] TRACE o.s.w.s.DispatcherServlet                - Bound request context to thread: org.apache.catalina.connector.RequestFacade@5d505375
+```
+* GET http://localhost:8090/api/placement/1/type 200
+ ```02:47:03.833 [http-ni] TRACE o.s.w.s.DispatcherServlet                - Bound request context to thread: org.apache.catalina.connector.RequestFacade@5d505375
  02:47:03.833 [http-ni] DEBUG o.s.w.s.DispatcherServlet                - DispatcherServlet with name 'dispatcherServlet' processing GET request for [/api/placement/1/type]
  02:47:03.833 [http-ni] TRACE o.s.w.s.DispatcherServlet                - Testing handler map [org.springframework.web.servlet.handler.SimpleUrlHandlerMapping@729cd862] in DispatcherServlet with name 'dispatcherServlet'
  02:47:03.834 [http-ni] TRACE o.s.w.s.DispatcherServlet                - Testing handler map [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping@1ccdc7aa] in DispatcherServlet with name 'dispatcherServlet'
@@ -39,13 +41,14 @@ http://localhost:8090/api/placementType => 404
  02:47:03.841 [http-ni] TRACE o.s.w.s.DispatcherServlet                - Testing handler adapter [org.springframework.data.rest.webmvc.RepositoryRestHandlerAdapter@42cc5460]
  02:47:03.841 [http-ni] DEBUG o.s.w.s.DispatcherServlet                - Last-Modified value for [/api/placement/1/type] is: -1
  Hibernate: select placement0_.id as id1_0_0_, placement0_.name as name2_0_0_, placement0_.theme_id as theme_id3_0_0_, placement0_.type_id as type_id4_0_0_ from placement placement0_ where placement0_.id=?
-Hibernate: select placementt0_.id as id1_2_0_, placementt0_.name as name2_2_0_ from placement_type placementt0_ where placementt0_.id=?
-02:47:03.889 [http-ni] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor  - Written [Resource { content: com.varren.model.PlacementType@68aabbdb, links: [<http://localhost:8090/api/placementType/1>;rel="self", <http://localhost:8090/api/placementType/1>;rel="placementType"] }] as "application/hal+json" using [org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguration$ResourceSupportHttpMessageConverter@559d19c]
+ Hibernate: select placementt0_.id as id1_2_0_, placementt0_.name as name2_2_0_ from placement_type placementt0_ where placementt0_.id=?
+ 02:47:03.889 [http-ni] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor  - Written [Resource { content: com.varren.model.PlacementType@68aabbdb, links: [<http://localhost:8090/api/placementType/1>;rel="self", <http://localhost:8090/api/placementType/1>;rel="placementType"] }] as "application/hal+json" using [org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguration$ResourceSupportHttpMessageConverter@559d19c]
  02:47:03.890 [http-ni] DEBUG o.s.w.s.DispatcherServlet                - Null ModelAndView returned to DispatcherServlet with name 'dispatcherServlet': assuming HandlerAdapter completed request handling
  02:47:03.890 [http-ni] TRACE o.s.w.s.DispatcherServlet                - Cleared thread-bound request context: org.apache.catalina.connector.RequestFacade@5d505375
  02:47:03.890 [http-ni] DEBUG o.s.w.s.DispatcherServlet                - Successfully completed request
-
- GET http://localhost:8090/api/placementType 404
+```
+ * GET http://localhost:8090/api/placementType 404
+ ```
  02:43:16.515 [http-ni] TRACE o.s.w.s.DispatcherServlet                - Bound request context to thread: org.apache.catalina.connector.RequestFacade@748ff89b
  02:43:16.515 [http-ni] DEBUG o.s.w.s.DispatcherServlet                - DispatcherServlet with name 'dispatcherServlet' processing GET request for [/api/placementType]
  02:43:16.515 [http-ni] TRACE o.s.w.s.DispatcherServlet                - Testing handler map [org.springframework.web.servlet.handler.SimpleUrlHandlerMapping@632241f5] in DispatcherServlet with name 'dispatcherServlet'
